@@ -13,6 +13,7 @@ class App extends Component {
 }
 
   criptoCoinSearch() {
+    this.students2 = [];
     var self = this ;
     var code = document.getElementById('inpt').value;
     let xhr1 = new XMLHttpRequest();
@@ -60,22 +61,22 @@ class App extends Component {
       <div id="main-container">
         <div id="frame"> 
         {this.students2.map( (item) => {
-        return <p>{item.name}-{item.symbol} </p>
+        return <p key={item.name}>{item.name}-{item.symbol} </p>
         })}
         </div>
         <div id="frame1"> 
         {this.students2.map( (item) => {
-        return <img src ={item.image.large} />
+        return <img src ={item.image.large} alt={item.name} key={item.name+Math.random()}/>
         })} 
          </div>
         <div id="frame2"> 
         {this.students2.map( (item) => {
-        return <p>{item.description.de}</p>
+        return <p key={item.description.de}>{item.description.de}</p>
         })}
       </div>
         <div id="frame3"> 
         {this.students2.map( (item) => {
-        return <p>Country of Origin -{item.country_origin}<br/>
+        return <p key={item.country_origin}>Country of Origin -{item.country_origin}<br/>
         Date of Appearance-{item.genesis_date}<br/>
         Market Cap Rank-{item.market_cap_rank}<br/>
         Coin Gecko-Rank-{item.coingecko_rank}<br/>
