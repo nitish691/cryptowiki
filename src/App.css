@@ -11,23 +11,40 @@
 #frame {
   margin-top: 10px;
   background-color: #009999;
-  height: 25px;
+  height: 40px;
 }
 #frame1 {
   float: left;
   background-color: #99ffff;
-  height: 260px;
-  width: 300px;
+  width: 20%;
+  padding: 10px;
+  border: 2px solid black;
+}
+#frame1 img {
+  width: 95%;
 }
 #frame3 {
   background-color: #99ffff;
-  margin-top: 260px;
-  width: 300px;
-  height: 300px;
+  /* margin-top: 260px; */
+  width: 20%;
+  height: 70vh;
+  padding: 10px;
+  border: 2px solid black;
 }
 #frame2 {
   float: right;
   background-color: #99ffff;
-  width: 1048px;
-  height: 560px;
+  width: 75%;
+  padding: 10px;
+  height: 70vh;
+  overflow: auto;
+  border: 2px solid #99ffff;
+}
+.text-body {
+  font-size: 15px;
+  word-wrap: none;
+  padding: 20px;
+}
+#main-container {
+  background-color: #99ffff;
 }

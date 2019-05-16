@@ -27,6 +27,7 @@ class App extends Component {
          xhr1.onload = function() {
            var data1 = JSON.parse(xhr1.responseText);
            //self.setState({students.push(data1)});
+           console.log(data1);
            self.students2.push(data1);
            self.forceUpdate();
         };
@@ -50,43 +51,61 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <h1>Cripto Wiki</h1>
+      <h1>Crypto Wiki</h1>
       <div className="container">
       <input type="text" id="inpt" placeholder="Enter the Crypto Currency Name" />
       <button id="btn" className="btn btn-outline-secondary" onClick= {this.criptoCoinSearch.bind(this)} >Get info About Coin</button>
       </div>
-      {/* <div>
-       
-      </div> */}
+      
       <div id="main-container">
+
         <div id="frame"> 
-        {this.students2.map( (item) => {
-        return <p key={item.name}>{item.name}-{item.symbol} </p>
-        })}
+          {
+            this.students2.map( (item) => {
+              return <h2 key={item.name}>{item.name} - {item.symbol} </h2>
+            })
+          }
         </div>
+
         <div id="frame1"> 
-        {this.students2.map( (item) => {
-        return <img src ={item.image.large} alt={item.name} key={item.name+Math.random()}/>
-        })} 
-         </div>
+          {
+            this.students2.map( (item) => {
+              return <img src ={item.image.large} alt={item.name} key={item.name+Math.random()}/>
+            })
+          } 
+        </div>
+
         <div id="frame2"> 
-        {this.students2.map( (item) => {
-        return <p key={item.description.de}>{item.description.de}</p>
-        })}
-      </div>
+          {
+            this.students2.map( (item) => {
+              return (
+                <div key={item.description.de} className="text-body"
+                dangerouslySetInnerHTML={{ __html: item.description.de }}>
+                  {console.log(item.description.de)}
+                </div>);
+            })
+          }
+        </div>
+
         <div id="frame3"> 
-        {this.students2.map( (item) => {
-        return <p key={item.country_origin}>Country of Origin -{item.country_origin}<br/>
-        Date of Appearance-{item.genesis_date}<br/>
-        Market Cap Rank-{item.market_cap_rank}<br/>
-        Coin Gecko-Rank-{item.coingecko_rank}<br/>
-        Score-{item.coingecko_score}<br/>
-        Developer Score-{item.developer_score}<br/>
-        Community Score-{item.community_score}<br/>
-        Liquidity Score-{item.liquidity_score}<br/>
-        Public Interest Score-{item.public_interest_score} </p>
-        })}
-         </div>
+          {
+            this.students2.map( (item) => {
+              return (
+                <p key={item.country_origin}>
+                  Country of Origin - {item.country_origin}<br/>
+                  Date of Appearance - {item.genesis_date}<br/>
+                  Market Cap Rank - {item.market_cap_rank}<br/>
+                  Coin Gecko-Rank - {item.coingecko_rank}<br/>
+                  Score - {item.coingecko_score}<br/>
+                  Developer Score - {item.developer_score}<br/>
+                  Community Score - {item.community_score}<br/>
+                  Liquidity Score - {item.liquidity_score}<br/>
+                  Public Interest Score - {item.public_interest_score}
+                </p>
+              );
+            })
+          }
+        </div>
       </div>
       </div>
     );

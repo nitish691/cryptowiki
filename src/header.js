@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 return (
     <Fragment>
        <div>
-          Cripto Wiki
+          Crypto Wiki
        </div>
     </Fragment>
  )
